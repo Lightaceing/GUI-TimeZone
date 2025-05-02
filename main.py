@@ -1,5 +1,5 @@
+#importing from other files
 from gui_functions import window
-#from time_functions import fetch_timezone_data
 
 """
 __name__ is interpret as __main__ when the file in run directly

@@ -1,8 +1,11 @@
+#Importing libraries
 import sys
 
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
+
+#Importing Other files
 from time_functions import TimeZone
 
 def create_timeZone_widget(timezoneName, parentWidget, x_pos, y_pos):
@@ -27,13 +30,13 @@ def window(timezoneNames):
     w.setWindowTitle("World Clock")
     w.setGeometry(100,100,600,300)
 
-    #//TODO:Create auto generative timezonewidget
+    #TODO:Create auto generative timezonewidget
 
-    #TimeZone1
-    create_timeZone_widget(timezoneName=timezoneNames[0], parentWidget = w, x_pos=50, y_pos=20)
-
-    #TimeZone2
-    create_timeZone_widget(timezoneName=timezoneNames[1], parentWidget = w, x_pos=300, y_pos=20)
+    for i in range(len(timezoneNames)):
+        create_timeZone_widget(timezoneName=timezoneNames[i],
+                                parentWidget = w,
+                                  x_pos=(i*200) + 50,
+                                  y_pos=20)
 
     w.show()
     sys.exit(app.exec())
