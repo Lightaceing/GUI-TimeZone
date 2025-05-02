@@ -1,4 +1,10 @@
-Using two files to implement timezones on gui
+Aim : 
+Implementing TimeZones Clock with GUI
 
-main.py : has gui and calls the entire application
-timefun.py : has functionality related to time
+Sub-goals : 
+Modular code with classes
+
+
+main.py : calls the application
+time_functions.py : has functionality related to time
+gui_functions.py : has functionality related to GUI

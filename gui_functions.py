@@ -1,0 +1,39 @@
+import sys
+
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
+from time_functions import TimeZone
+
+def create_timeZone_widget(timezoneName, parentWidget, x_pos, y_pos):
+
+    t1 = TimeZone(timezoneName)
+
+    timeZoneLabel1 = QLabel(parentWidget)
+    timeZoneTime1 = QLabel(parentWidget)
+
+    timeZoneLabel1.setText(t1.timeZoneData[0])
+    timeZoneTime1.setText(t1.timeZoneData[1]+ "   " + t1.timeZoneData[2])
+
+    timeZoneLabel1.move(x_pos,y_pos)
+    timeZoneTime1.move(x_pos-10,y_pos+ 20)
+    
+    timeZoneLabel1.show()
+    timeZoneTime1.show()
+
+def window(timezoneNames):
+    app = QApplication(sys.argv)
+    w = QLabel()
+    w.setWindowTitle("World Clock")
+    w.setGeometry(100,100,600,300)
+
+    #//TODO:Create auto generative timezonewidget
+
+    #TimeZone1
+    create_timeZone_widget(timezoneName=timezoneNames[0], parentWidget = w, x_pos=50, y_pos=20)
+
+    #TimeZone2
+    create_timeZone_widget(timezoneName=timezoneNames[1], parentWidget = w, x_pos=300, y_pos=20)
+
+    w.show()
+    sys.exit(app.exec())
