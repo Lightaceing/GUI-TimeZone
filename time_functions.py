@@ -2,16 +2,15 @@
 from datetime import datetime
 import pytz
 
-def fetch_timezone_data(timezone_Name):
-    timezone = pytz.timezone(timezone_Name)
-    timezone_info = [datetime.now(timezone).strftime("%d:%m:%Y"), 
-                     datetime.now(timezone).strftime("%H:%M:%S")]
-    return timezone_info
-
 class TimeZone:
     def __init__(self, timezoneName):
-        self.timezone = timezoneName
-        self.timeZoneData = [timezoneName] + fetch_timezone_data(timezoneName)
+        self.timezone = pytz.timezone(timezoneName)
+        #self.timeZoneData = [timezoneName] + fetch_timezone_data(timezoneName)
 
+    def fetch_current_time(self):
+        print(datetime.now(self.timezone).strftime("%H:%M:%S"))
 
+    def fetch_current_date(self):
+        print(datetime.now(self.timezone).strftime("%d:%m:%Y"))
 
+    
