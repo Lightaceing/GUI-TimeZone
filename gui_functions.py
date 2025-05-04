@@ -16,8 +16,10 @@ def create_timeZone_widget(timezoneName, parentWidget, x_pos, y_pos):
     timeZoneTime1 = QLabel(parentWidget)
     
     #TimeZone Name
-    timeZoneLabel1.setText(t1.timezone)
-    timeZoneTime1.setText(t1.fetch_current_time+ "   " + t1.fetch_current_date)
+    timeZoneLabel1.setText(str(t1.timezone))
+
+    #TimeZone time and date
+    timeZoneTime1.setText(t1.fetch_current_time()+ "   " + t1.fetch_current_date())
 
     timeZoneLabel1.move(x_pos,y_pos)
     timeZoneTime1.move(x_pos-10,y_pos+ 20)
